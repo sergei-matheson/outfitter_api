@@ -7,7 +7,8 @@ use Mix.Config
 
 # General application configuration
 config :outfitter_api,
-  ecto_repos: [OutfitterApi.Repo]
+  ecto_repos: [OutfitterApi.Repo],
+  generators: [binary_id: true]
 
 # Configures the endpoint
 config :outfitter_api, OutfitterApiWeb.Endpoint,
