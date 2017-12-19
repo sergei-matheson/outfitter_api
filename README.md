@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sergei-matheson/outfitter_api.svg?branch=master)](https://travis-ci.org/sergei-matheson/outfitter_api)
+
 # OutfitterApi
 
 To start your Phoenix server:
