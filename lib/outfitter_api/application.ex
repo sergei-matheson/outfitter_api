@@ -1,4 +1,8 @@
 defmodule OutfitterApi.Application do
+  @moduledoc """
+  The Outfitter API app entry point
+  """
+
   use Application
 
   alias OutfitterApiWeb.Endpoint
@@ -14,7 +18,9 @@ defmodule OutfitterApi.Application do
       supervisor(OutfitterApi.Repo, []),
       # Start the endpoint when the application starts
       supervisor(OutfitterApiWeb.Endpoint, []),
-      # Start your own worker by calling: OutfitterApi.Worker.start_link(arg1, arg2, arg3)
+      # Start your own worker by calling:
+      #   OutfitterApi.Worker.start_link(arg1, arg2, arg3)
+      #
       # worker(OutfitterApi.Worker, [arg1, arg2, arg3]),
     ]
 
