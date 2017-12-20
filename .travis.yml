@@ -1,4 +1,5 @@
 language: elixir
 elixir: '1.5'
 script:
-  mix test && mix credo
+  mix credo
+  mix coveralls # Will run mix test with coverage

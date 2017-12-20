@@ -20,7 +20,7 @@ defmodule OutfitterApi.Bungie do
   def get_account!(id) do
     case  Client.get("/User/GetBungieNetUserById/#{id}/") do
       %{status: 200, body: account_data} -> struct(Account, account_data)
-      other -> raise other
+      _ -> raise "Unknown account id #{id}"
     end
   end
 end

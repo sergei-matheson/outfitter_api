@@ -10,7 +10,9 @@ defmodule OutfitterApi.Mixfile do
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test]
     ]
   end
 
@@ -40,9 +42,10 @@ defmodule OutfitterApi.Mixfile do
       {:gettext, "~> 0.11"},
       {:tesla, "~> 0.9.0"},
       {:poison, ">= 3.0.0"},
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:conform, "~> 2.2"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.7", only: [:dev, :test]}
     ]
   end
 

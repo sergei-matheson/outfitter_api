@@ -9,15 +9,12 @@ defmodule OutfitterApi.BungieTest do
 
     @valid_attrs %{}
 
-    def mock_response(path, body) do
-      url = "#{Client.base_url}#{path}"
-      Tesla.Mock.mock fn
-        %{method: :get, url: ^url} -> %Tesla.Env{status: 200, body: body}
-      end
-    end
-
     setup do
-      mock_response("/User/GetBungieNetUserById/1/", %{id: 1})
+      valid_url = "#{Client.base_url}/User/GetBungieNetUserById/1/"
+      Tesla.Mock.mock fn
+        %{method: :get, url: ^valid_url} -> %Tesla.Env{status: 200, body: %{id: 1}}
+        _ ->  %Tesla.Env{status: 404, body: "NotFound"}
+      end
       :ok
     end
 
@@ -29,6 +26,15 @@ defmodule OutfitterApi.BungieTest do
     test "get_account!/1 uses the client to find the account with given id" do
       account = account_fixture(id: 1)
       assert Bungie.get_account!(account.id) == account
+    end
+
+    test "get_account!/1 raises an error if the account does not exist" do
+      assert_raise(
+        RuntimeError, "Unknown account id 2",
+        fn ->
+          Bungie.get_account!(2)
+        end
+      )
     end
   end
 end
