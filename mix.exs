@@ -38,6 +38,8 @@ defmodule OutfitterApi.Mixfile do
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
+      {:tesla, "~> 0.9.0"},
+      {:poison, ">= 3.0.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:cowboy, "~> 1.0"}
     ]
