@@ -4,8 +4,7 @@ defmodule OutfitterApi.Bungie do
   """
 
   alias OutfitterApi.Bungie.Account
-
-  #alias OutfitterApi.Bungie.Client
+  alias OutfitterApi.Bungie.Client
 
   @doc """
   Gets a single account.
@@ -19,6 +18,9 @@ defmodule OutfitterApi.Bungie do
 
   """
   def get_account!(id) do
-    %Account{id: id}
+    case  Client.get("/User/GetBungieNetUserById/#{id}/") do
+      %{status: 200, body: account_data} -> struct(Account, account_data)
+      other -> raise other
+    end
   end
 end

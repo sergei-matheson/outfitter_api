@@ -17,3 +17,7 @@ config :outfitter_api, OutfitterApi.Repo,
   database: "outfitter_api_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Use the mock adapter for tesla HTTP clients,
+# such as OutfitterApi.Bungie.Client
+config :tesla, adapter: :mock
