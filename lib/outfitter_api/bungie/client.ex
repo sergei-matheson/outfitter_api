@@ -6,7 +6,7 @@ defmodule OutfitterApi.Bungie.Client do
   use Tesla
 
   @base_url "https://www.bungie.net/Platform"
-  @api_key "totally-an-api-key"
+  @api_key Application.get_env(:outfitter_api, :bungie)[:api_key]
 
   plug Tesla.Middleware.BaseUrl, @base_url
   plug Tesla.Middleware.Headers, %{"X-API-Key" => @api_key}
@@ -14,5 +14,9 @@ defmodule OutfitterApi.Bungie.Client do
 
   def base_url do
     @base_url
+  end
+
+  def api_key do
+    @api_key
   end
 end

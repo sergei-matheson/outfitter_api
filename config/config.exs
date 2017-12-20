@@ -10,7 +10,7 @@ config :outfitter_api,
   ecto_repos: [OutfitterApi.Repo],
   generators: [binary_id: true],
   bungie: [
-    api_key: "totally-a-real-api-key"
+    api_key: System.get_env("OUTFITTER_API_BUNGIE_API_KEY")
   ]
 
 # Configures the endpoint

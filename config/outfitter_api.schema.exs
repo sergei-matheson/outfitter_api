@@ -105,8 +105,8 @@ See the moduledoc for `Conform.Schema.Validator` for more details and examples.
     "outfitter_api.bungie.api_key": [
       commented: false,
       datatype: :binary,
-      default: "totally-a-real-api-key",
       doc: "Provide documentation for outfitter_api.bungie.api_key here.",
+      env_var: "OUTFITTER_API_BUNGIE_API_KEY",
       hidden: false,
       to: "outfitter_api.bungie.api_key"
     ],
@@ -215,7 +215,6 @@ See the moduledoc for `Conform.Schema.Validator` for more details and examples.
     "outfitter_api.Elixir.OutfitterApi.Repo.database": [
       commented: false,
       datatype: :binary,
-      default: "outfitter_api_prod",
       doc: "Provide documentation for outfitter_api.Elixir.OutfitterApi.Repo.database here.",
       hidden: false,
       env_var: "OUTFITTER_API_DB_NAME",
