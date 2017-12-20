@@ -41,6 +41,7 @@ defmodule OutfitterApi.Mixfile do
       {:tesla, "~> 0.9.0"},
       {:poison, ">= 3.0.0"},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:conform, "~> 2.2"},
       {:cowboy, "~> 1.0"}
     ]
   end
