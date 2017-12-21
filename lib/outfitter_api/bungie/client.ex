@@ -5,7 +5,7 @@ defmodule OutfitterApi.Bungie.Client do
 
   use Tesla
 
-  @base_url "https://www.bungie.net/Platform"
+  @base_url "https://www.bungie.net/Platform/Destiny2"
   @api_key Application.get_env(:outfitter_api, :bungie)[:api_key]
 
   plug Tesla.Middleware.BaseUrl, @base_url
